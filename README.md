@@ -36,4 +36,24 @@ and be garbage collected.
 ```
 iex> guesses = update_in(guesses.hits, &MapSet.put(&1, coordinate2))
 ```
-If we try adding coordinate1 again, it will not change much
+If we try adding coordinate1 again, it will not change much.
+
+## Islands
+
+Within the body of `new/2` there are two conditions we have to meet in order to produce
+a valid island. The `offsets/1` function has to return a list of offsets instead of an invalid island key error,
+and `add_coordinates/2` neeeds to return a `MapSet` instead of an invalid coordinate error.
+If both of those conditions pass, we can return a **tagged** tuple with `:ok`
+and the complete island.
+
+In Elixir, the preffered way to handle multiple conditions like this is with the `with/1`
+special form. This keeps all the validations in one place, and it gives us a single place
+to handle any error that might come up.
+
+### Error
+
+The else clause mathes any error that might arise and passes it on.
+We are expecting this to be one of two error types:
+
+- {:error, :invalid_island_type}
+- {:error, :invalid_coordinate}
