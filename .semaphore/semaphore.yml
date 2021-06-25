@@ -10,6 +10,6 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - checkout
+            - ls
       secrets:
         - name: test-111
