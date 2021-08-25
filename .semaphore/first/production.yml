@@ -1,0 +1,13 @@
+version: v1.0
+name: Deploy First
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Deploy1
+    task:
+      jobs:
+        - name: echo
+          commands:
+            - echo "test"

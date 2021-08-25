@@ -13,3 +13,9 @@ blocks:
             - ls
       secrets:
         - name: test-111
+
+promotions:
+  - name: First
+    pipeline_file: first/production.yml
+  - name: Second
+    pipeline_file: second/production.yml
