@@ -14,7 +14,7 @@ blocks:
       secrets:
         - name: test-111
     dependencies: []
-  - name: 'Block #2'
+  - name: Example skipped block
     skip:
       when: branch = 'set-up-semaphore'
     dependencies: []
