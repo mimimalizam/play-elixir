@@ -13,7 +13,16 @@ blocks:
             - ls
       secrets:
         - name: test-111
-
+    dependencies: []
+  - name: 'Block #2'
+    skip:
+      when: branch = 'set-up-semaphore'
+    dependencies: []
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - echo
 promotions:
   - name: First
     pipeline_file: first/production.yml
